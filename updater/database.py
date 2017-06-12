@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 from mongoengine import Document, BooleanField, DateTimeField, StringField
 
 from datetime import datetime, timedelta
@@ -43,6 +45,12 @@ class Rom(Document):
         for version in cls.objects().aggregate({'$group': {'_id': '$version', 'devices': {'$push': '$device'}}}):
             versions[version['_id']] = version['devices']
         return versions
+
+    @classmethod
+    def get_device_version(cls, device):
+        if not device:
+            return None
+        return cls.objects(device=device).first()['version']
 
 class Device(Document):
     model = StringField(required=True, unique=True)

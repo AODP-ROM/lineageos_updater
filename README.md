@@ -18,27 +18,28 @@ so limit this to around 25 characters.
 * `has_recovery`: (*optional*) whether or not the device has a separate recovery partition. Defaults to `true`.
 * `image`: (*optional*) the filename (excluding .png) of the device's image. Defaults to the value of `model`.
 * `wiki`: (*optional*) the name of the wiki page, excluding "\_info". Defaults to the value of `model`.
-For example, `i9300` would be shown on the website as a link to http://wiki.lineageos.org/i9300_info.html.
+For example, `i9300` would be shown on the website as a link to http://wiki.lineageos.org/devices/i9300
 * `special_instructions_url`: (*optional*) a url with special instructions for a user to read before downloading. - 
-e.g. `http://wiki.lineageos.org/i9300_install.html#installing-a-custom-recovery`. This will show in a lightbox on the
+e.g. `http://wiki.lineageos.org/devices/i9300/install#installing-a-custom-recovery`. This will show in a lightbox on the
 device's download page.
 
 This file is no longer read from disk by the application and must be loaded into mongo. To do so, run: 
 
-`FLASK_APP=app.py flask import_devices`
+`FLASK_APP=updater.app flask import_devices`
 
-Initial set up:
+Development set up:
 ---
 1. Install requirements with `pip install -r requirements.txt`
-2. Copy `app.cfg.example` to `app.cfg`
-3. Import the devices list with `FLASK_APP=app.py flask import_devices`
-4. Run with `FLASK_APP=app.py flask run`
+2. Install editable `updater` module with `pip install -e .`
+3. Copy `app.cfg.example` to `app.cfg`
+4. Import the devices list with `FLASK_APP=updater.app flask import_devices`
+5. Run with `FLASK_APP=updater.app flask run`
 
 
 API Keys
 ---
 Any method with the `@api_key_required` decorate requires an API key. You can generate one by running: <br>
-`FLASK_APP=app.py flask api_key [OPTIONS]"` <br>
+`FLASK_APP=updater.app flask api_key [OPTIONS]"` <br>
 
 ```
 Options:
@@ -50,7 +51,7 @@ Options:
 
 Adding and removing entries:
 ---
-To add use `FLASK_APP=app.py flask addrom [OPTIONS]`
+To add use `FLASK_APP=updater.app flask addrom [OPTIONS]`
 
 ```
 Options:
@@ -64,7 +65,7 @@ Options:
   --help                Show this message and exit.
 ```
 
-To remove use `FLASK_APP=app.py flask delrom [OPTIONS]`
+To remove use `FLASK_APP=updater.app flask delrom [OPTIONS]`
 
 ```
 Options:

@@ -13,13 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from database import Rom
+from __future__ import absolute_import
+from updater.database import Rom
+from updater.changelog.gerrit import GerritServer, datetime_to_gerrit
+
 from datetime import datetime, timedelta
-from changelog.gerrit import GerritServer, datetime_to_gerrit
 
 import json
 
-# device_deps.json is generated using https://github.com/fourkbomb/lineage_dependencies
+# device_deps.json is generated using https://github.com/LineageOS/scripts/tree/master/device-deps-regenerator
 with open('device_deps.json') as f:
     dependencies = json.load(f)
 is_qcom = {}
@@ -29,7 +31,7 @@ def is_related_change(gerrit, device, curbranch, project, branch):
         return False
 
     # branch = "cm-14.1-caf-msm8996" or "cm-14.1" or "stable/cm-13.0-ZNH5Y"
-    if curbranch not in branch or "/" in branch:
+    if curbranch and (curbranch not in branch or "/" in branch):
         return False
 
     if device not in dependencies:
@@ -41,7 +43,7 @@ def is_related_change(gerrit, device, curbranch, project, branch):
         return True
 
     if '_kernel_' in project or '_device_' in project or 'samsung' in project or 'nvidia' in project \
-            or '_omap' in project or 'FlipFlap' in project:
+            or '_omap' in project or 'FlipFlap' in project or 'lge-kernel-mako' in project:
         return False
 
     if not ('hardware_qcom_' in project or project.endswith('-caf')):
@@ -74,6 +76,8 @@ def is_related_change(gerrit, device, curbranch, project, branch):
     return qcom
 
 def get_timestamp(ts):
+    if not ts:
+        return None
     return int((ts - datetime(1970, 1, 1)).total_seconds())
 
 def get_changes(gerrit, device=None, before=-1, version='14.1'):
@@ -90,12 +94,12 @@ def get_changes(gerrit, device=None, before=-1, version='14.1'):
     nightly_changes = []
     last = 0
     for c in changes:
-        last = get_timestamp(c.updated)
+        last = get_timestamp(c.submitted)
         if is_related_change(gerrit, device, version, c.project, c.branch):
             nightly_changes.append({
                 'project': c.project,
                 'subject': c.subject,
-                'updated': get_timestamp(c.updated),
+                'submitted': get_timestamp(c.submitted),
                 'url': c.url,
                 'owner': c.owner,
                 'labels': c.labels
