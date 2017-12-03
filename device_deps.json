@@ -145,10 +145,8 @@
         "android_device_xiaomi_capricorn",
         "android_device_xiaomi_msm8996-common",
         "android_kernel_xiaomi_msm8996",
-        "android_packages_resources_devicesettings",
-        "android_vendor_nxp-nfc_opensource_Nfc",
-        "android_vendor_nxp-nfc_opensource_frameworks",
-        "android_vendor_nxp-nfc_opensource_libnfc-nci"
+        "android_packages_apps_FlipFlap",
+        "android_packages_resources_devicesettings"
     ],
     "castor": [
         "android_device_qcom_common",
@@ -563,10 +561,7 @@
         "android_device_xiaomi_gemini",
         "android_device_xiaomi_msm8996-common",
         "android_kernel_xiaomi_msm8996",
-        "android_packages_resources_devicesettings",
-        "android_vendor_nxp-nfc_opensource_Nfc",
-        "android_vendor_nxp-nfc_opensource_frameworks",
-        "android_vendor_nxp-nfc_opensource_libnfc-nci"
+        "android_packages_resources_devicesettings"
     ],
     "ghost": [
         "android_device_motorola_ghost",
@@ -1489,10 +1484,7 @@
         "android_device_xiaomi_lithium",
         "android_device_xiaomi_msm8996-common",
         "android_kernel_xiaomi_msm8996",
-        "android_packages_resources_devicesettings",
-        "android_vendor_nxp-nfc_opensource_Nfc",
-        "android_vendor_nxp-nfc_opensource_frameworks",
-        "android_vendor_nxp-nfc_opensource_libnfc-nci"
+        "android_packages_resources_devicesettings"
     ],
     "ls980": [
         "android_device_lge_g2-common",
@@ -1548,6 +1540,15 @@
         "android_device_qcom_common",
         "android_external_bson",
         "android_kernel_motorola_msm8916",
+        "android_packages_resources_devicesettings"
+    ],
+    "m216": [
+        "android_device_lge_m216",
+        "android_device_lge_msm8916-common",
+        "android_device_qcom_common",
+        "android_external_stlport",
+        "android_kernel_lge_msm8916",
+        "android_packages_apps_FlipFlap",
         "android_packages_resources_devicesettings"
     ],
     "m7": [
@@ -1762,10 +1763,7 @@
         "android_device_xiaomi_msm8996-common",
         "android_device_xiaomi_natrium",
         "android_kernel_xiaomi_msm8996",
-        "android_packages_resources_devicesettings",
-        "android_vendor_nxp-nfc_opensource_Nfc",
-        "android_vendor_nxp-nfc_opensource_frameworks",
-        "android_vendor_nxp-nfc_opensource_libnfc-nci"
+        "android_packages_resources_devicesettings"
     ],
     "nicki": [
         "android_device_qcom_common",
@@ -2026,7 +2024,7 @@
     ],
     "roth": [
         "android_device_nvidia_roth",
-        "android_hardware_nvidia_power",
+        "android_hardware_nvidia_sensors",
         "android_kernel_nvidia_roth"
     ],
     "rs988": [
@@ -2074,10 +2072,7 @@
         "android_device_xiaomi_msm8996-common",
         "android_device_xiaomi_scorpio",
         "android_kernel_xiaomi_msm8996",
-        "android_packages_resources_devicesettings",
-        "android_vendor_nxp-nfc_opensource_Nfc",
-        "android_vendor_nxp-nfc_opensource_frameworks",
-        "android_vendor_nxp-nfc_opensource_libnfc-nci"
+        "android_packages_resources_devicesettings"
     ],
     "scorpion": [
         "android_device_qcom_common",
@@ -2228,6 +2223,15 @@
         "android_hardware_samsung",
         "android_kernel_samsung_smdk4412"
     ],
+    "t0ltejpn": [
+        "android_device_samsung_smdk4412-common",
+        "android_device_samsung_smdk4412-qcom-common",
+        "android_device_samsung_t0lte",
+        "android_device_samsung_t0ltejpn",
+        "android_external_stlport",
+        "android_hardware_samsung",
+        "android_kernel_samsung_smdk4412"
+    ],
     "t0ltekor": [
         "android_device_samsung_smdk4412-common",
         "android_device_samsung_smdk4412-qcom-common",
@@ -2275,6 +2279,10 @@
         "android_device_htc_t6vzw",
         "android_device_qcom_common",
         "android_kernel_htc_msm8960"
+    ],
+    "taido": [
+        "android_device_motorola_taido",
+        "android_kernel_motorola_mt6735"
     ],
     "taoshan": [
         "android_device_qcom_common",

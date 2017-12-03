@@ -64,7 +64,7 @@ def api_key(comment, remove, echo):
         for i in ApiKey.objects():
             print(i.apikey, i.comment)
     elif remove:
-        for i in ApiKey.objects(apikey=apikey):
+        for i in ApiKey.objects(apikey=remove):
             i.delete()
     elif comment:
         key = uuid4().hex
@@ -227,7 +227,8 @@ def web_device(device):
 
     active_device = Device.objects(model=device).first()
 
-    return render_template("device.html", active_oem=active_oem, active_device=active_device, oems=oems, devices=devices, roms=roms, get_timestamp=get_timestamp)
+    return render_template("device.html", active_oem=active_oem, active_device=active_device, oems=oems, devices=devices, roms=roms, get_timestamp=get_timestamp,
+            wiki_info=app.config['WIKI_INFO_URL'], wiki_install=app.config['WIKI_INSTALL_URL'])
 
 @app.route("/extras")
 @cache.cached(timeout=3600)
